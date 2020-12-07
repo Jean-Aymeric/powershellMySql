@@ -2,7 +2,7 @@
     . ("JADMySql.ps1")
 }
 catch {
-    Write-Host "Error while loading JADMySql.ps1 script" 
+    Write-Output "Error while loading JADMySql.ps1 script"
 }
 
 $mysqlConnection = connectToMySql;
