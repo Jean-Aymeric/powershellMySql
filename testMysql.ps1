@@ -16,5 +16,4 @@ $dataSet1 = getDataSetFromProcedure -mysqlConnection $mysqlConnection -procedure
 writeOutputDataSet -dataSet $dataSet1
 Write-Output "`n"
 
-
 disconnectFromMySql ($mysqlConnection)
