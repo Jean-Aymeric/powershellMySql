@@ -2,11 +2,14 @@ name: Lint Code Base
 
 on:
   push:
+    branches: 
+      - master
+      - dev
     
   pull_request:
     branches: 
       - master
-      - dev*
+      - dev
 
 jobs:
   build:
