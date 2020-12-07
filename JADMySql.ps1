@@ -1,6 +1,6 @@
 ﻿$mysqlnet=[Reflection.Assembly]::LoadWithPartialName("MySql.Data")
 if (-not $mysqlnet) {
-    Write-Error "Error while loading MySql.Data module"
+    Write-Error "Error while loading MySql.Data module. You can download it here -> https://dev.mysql.com/downloads/connector/net/"
     Exit
 }
 
