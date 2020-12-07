@@ -104,7 +104,7 @@ function writeOutputDataSet {
         $columnsSize.add($column.ColumnName, $column.ColumnName.length +1)
     }
     foreach ($row in $dataSet.Tables) {
-	    foreach ($column in $dataSet.Tables.Columns) {
+        foreach ($column in $dataSet.Tables.Columns) {
             if ($columnsSize[$column.ColumnName] -le "$($row[$column])".length) {
                 $columnsSize[$column.ColumnName] = "$($row[$column])".length +1
             }
@@ -122,7 +122,7 @@ function writeOutputDataSet {
     Write-Output $titleString
     Write-Output "".PadRight($tableSize, "-")
     foreach ($row in $dataSet.Tables) {
-	    [string]$rowString = "|"
+        [string]$rowString = "|"
         foreach ($column in $dataSet.Tables.Columns) {
             $rowString += " " + "$($row[$column])".PadRight($columnsSize[$column.ColumnName], " ") + " |"
         }
