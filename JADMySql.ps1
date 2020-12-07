@@ -78,8 +78,6 @@ function getDataSetFromProcedure {
         $mysqlDataAdapter.Dispose()
         $mysqlCommand.Dispose()
         return $dataSet
-#        $mysqlCommand.ExecuteNonQuery() | Out-Null
-#        $mysqlCommand.Dispose()
    } catch {
         Write-Error Exception.Message
         Exit
