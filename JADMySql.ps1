@@ -5,13 +5,20 @@ if (-not $mysqlnet) {
 }
 
 function connectToMySql {
+    param (
+        [string]$myHost,
+        [string]$myport,
+        [string]$myUserName,
+        [string]$myPassword,
+        [string]$myDatabase
+    )
     try {
         $mysqlConnection = New-Object MySql.Data.MySqlClient.MySqlConnection
-        $mysqlConnection.ConnectionString = "Host=localhost;
-                                             Port=3306;
-                                             Username=root;
-                                             Password=root;
-                                             Database=jadsiege"
+        $mysqlConnection.ConnectionString = "Host=$myHost;
+                                             Port=$myport;
+                                             Username=$myUserName;
+                                             Password=$myPassword;
+                                             Database=$myDatabase"
         $mysqlConnection.Open()
         return [MySql.Data.MySqlClient.MySqlConnection]$mysqlConnection
     } catch {
@@ -71,8 +78,6 @@ function getDataSetFromProcedure {
         $mysqlDataAdapter.Dispose()
         $mysqlCommand.Dispose()
         return $dataSet
-#        $mysqlCommand.ExecuteNonQuery() | Out-Null
-#        $mysqlCommand.Dispose()
    } catch {
         Write-Error Exception.Message
         Exit
