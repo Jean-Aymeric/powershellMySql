@@ -1,12 +1,11 @@
 ﻿try {
-    . ("JADMySql.ps1")
+    . (".\JADMySql.ps1")
 }
 catch {
     Write-Output "Error while loading JADMySql.ps1 script"
 }
 
-$mysqlConnection = connectToMySql;
-
+$mysqlConnection = connectToMySql -myHost "localhost" -myport 3306 -myUserName "root" -myPassword "root"-myDatabase "jadsiege";
 callProcedure -mysqlConnection $mysqlConnection -procedure "setLog" -parameters @{_message="Test via Powershell avec callProcedure()"};
 
 $dataSet3 = getDataSetFromQuery -mysqlConnection $mysqlConnection -querySelect "SELECT * FROM jadsiege.article;"
